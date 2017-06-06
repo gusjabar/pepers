@@ -9,8 +9,9 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class AppComponent implements OnInit {
   
-  title = 'Welcome to Peper\'s restourant!';
+  title = 'Welcome to Peper\'s restaurant!';
   cuisines;
+  restaurant;
 
 
   constructor(private db: AngularFireDatabase) {
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
     this.cuisines = this.db.list('/cuisines');
+    this.restaurant = this.db.object('/restaurant');
   }
 
 }

@@ -5,3 +5,5 @@
 <ul>
   <li *ngFor='let cuisine of cuisines | async'>{{cuisine.$value}}</li>
 </ul>
+
+<h3>{{(restaurant | async)?.name}}</h3>

@@ -1,3 +1,7 @@
 <h1>
   {{title}}
 </h1>
+<hr>
+<ul>
+  <li *ngFor='let cuisine of cuisines'>{{cuisine.$value}}</li>
+</ul>

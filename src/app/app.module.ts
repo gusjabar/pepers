@@ -5,6 +5,11 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2'
+import { environment } from '../environments/environment';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +17,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, // imports firebase/database, only needed for database features
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

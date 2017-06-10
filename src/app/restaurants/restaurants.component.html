@@ -6,7 +6,9 @@
 </ul>
 
 <h3>Restaurants:</h3>
-<a href="" class="" routerLink="/restaurants/new">New restaurant</a>
+<a routerLink="/restaurants/new">New restaurant</a>
 <ul>
-  <li *ngFor='let restaurant of restaurants | async'>{{restaurant.name}}</li>
+  <li *ngFor='let restaurant of restaurants | async'>
+    {{restaurant.name}} <button class="btn-btn-default" (click)="Edit(restaurant)">Edit</button>
+  </li>  
 </ul>

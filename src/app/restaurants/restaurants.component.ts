@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-restaurants',
@@ -12,7 +13,8 @@ export class RestaurantsComponent implements OnInit {
   restaurants;
 
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase
+    , private router: Router) {
 
   }
   ngOnInit() {
@@ -20,6 +22,11 @@ export class RestaurantsComponent implements OnInit {
     this.restaurants = this.db.list('/restaurants');
     //this.restaurant = this.db.object('/restaurant');
     console.log(this.restaurants);
+  }
+  Edit(restaurant) {
+    console.log('Edit')
+    this.router.navigate(['restaurants/edit/' + restaurant.$key])
+
   }
 
 }

@@ -7,19 +7,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   
-  title = 'Welcome to Peper\'s restaurant!';
-  cuisines;
-  restaurant;
-
-
-  constructor(private db: AngularFireDatabase) {
-
-  }
-  ngOnInit() {
-    this.cuisines = this.db.list('/cuisines');
-    this.restaurant = this.db.object('/restaurant');
-  }
-
+  
 }

@@ -1,0 +1,19 @@
+<p>
+  Add new restaurant
+</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="hidden" id="id" formControlName="id">
+  <div class="form-group">
+    <label for="name" class="form-label">
+      Restaurant:
+    </label>
+    <input type="text" id="name" class="form-control" formControlName="name"></div>
+  <div class="text-danger" [hidden]="!(form.controls.name.touched 
+                         && form.controls.name.errors)">
+    <p [hidden]="!form.controls.name.errors?.required">
+      Restaurant name is required.
+    </p>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{{this.form.value | json}}

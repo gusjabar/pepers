@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1>My restaurants <small>Display all actives.</small></h1>
+</div>
+<ul>
+  <li *ngFor='let cuisine of cuisines | async'>{{cuisine.$value}}</li>
+</ul>
+
+<h3>Restaurants:</h3>
+<a href="" class="" routerLink="/restaurants/new">New restaurant</a>
+<ul>
+  <li *ngFor='let restaurant of restaurants | async'>{{restaurant.name}}</li>
+</ul>

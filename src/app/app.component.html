@@ -1,9 +1,5 @@
-<h1>
-  {{title}}
-</h1>
-<hr>
-<ul>
-  <li *ngFor='let cuisine of cuisines | async'>{{cuisine.$value}}</li>
-</ul>
 
-<h3>{{(restaurant | async)?.name}}</h3>
+<navbar></navbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

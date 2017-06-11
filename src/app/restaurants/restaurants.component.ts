@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { Router } from "@angular/router";
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
@@ -10,7 +11,7 @@ import { Router } from "@angular/router";
 export class RestaurantsComponent implements OnInit {
 
   cuisines;
-  restaurants;
+  restaurants: Observable<any>;
 
 
   constructor(private db: AngularFireDatabase
@@ -19,9 +20,18 @@ export class RestaurantsComponent implements OnInit {
   }
   ngOnInit() {
     this.cuisines = this.db.list('/cuisines');
-    this.restaurants = this.db.list('/restaurants');
+    this.restaurants = this.db.list('/restaurants')
+                            .map(restaurants => {
+                              console.log("BEFORE MAP", restaurants);
+                              restaurants.map(restaurant => {
+                                restaurant.cusineType = this.db.object('cuisines/' + restaurant.cusine);
+                                return restaurant;
+                              });
+                              console.log("AFTER MAP", restaurants);
+                              return restaurants;
+                            });
     //this.restaurant = this.db.object('/restaurant');
-    console.log(this.restaurants);
+   
   }
   Edit(restaurant) {
     console.log('Edit')

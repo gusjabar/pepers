@@ -21,7 +21,7 @@
           <li class="list-group-item" *ngFor='let restaurant of restaurants | async'>
             <div style="position:relative;">
               <p>
-                {{restaurant.name}}
+                {{restaurant.name}} - {{(restaurant.cusineType | async)?.$value}}
                 <span class="pull-right">
             <button class="btn btn-danger btn-sm" (click)="Remove(restaurant)">Delete</button>
             <button class="btn btn-default btn-sm" (click)="Edit(restaurant)">Edit</button>

@@ -1,14 +1,36 @@
-<div class="page-header">
-  <h1>My restaurants <small>Display all actives.</small></h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header">
+      <h1>My restaurants <small>Display all actives.</small></h1>
+    </div>
+  </div>
 </div>
-<ul>
-  <li *ngFor='let cuisine of cuisines | async'>{{cuisine.$value}}</li>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">My Restaurants
+          <p class="pull-right">
+            <a routerLink="/restaurants/new">New restaurant</a>
+          </p>
+        </h3>
 
-<h3>Restaurants:</h3>
-<a routerLink="/restaurants/new">New restaurant</a>
-<ul>
-  <li *ngFor='let restaurant of restaurants | async'>
-    {{restaurant.name}} <button class="btn-btn-default" (click)="Edit(restaurant)">Edit</button>
-  </li>  
-</ul>
+      </div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor='let restaurant of restaurants | async'>
+            <div style="position:relative;">
+              <p>
+                {{restaurant.name}}
+                <span class="pull-right">
+            <button class="btn btn-danger btn-sm" (click)="Remove(restaurant)">Delete</button>
+            <button class="btn btn-default btn-sm" (click)="Edit(restaurant)">Edit</button>
+        </span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

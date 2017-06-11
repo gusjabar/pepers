@@ -26,7 +26,12 @@ export class RestaurantsComponent implements OnInit {
   Edit(restaurant) {
     console.log('Edit')
     this.router.navigate(['restaurants/edit/' + restaurant.$key])
-
+  }
+  Remove(restaurant) {
+    this.db.object('/restaurants/' + restaurant.$key)
+      .remove()
+      .then(x => console.log('Delete success: ', x))
+      .catch(e => console.log(e));
   }
 
 }

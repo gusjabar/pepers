@@ -23,7 +23,7 @@
               <p>
                 {{restaurant.name}} - {{(restaurant.cusineType | async)?.$value}}
                 <span class="pull-right">
-            <button class="btn btn-danger btn-sm" (click)="Remove(restaurant)">Delete</button>
+            <button class="btn btn-danger btn-sm" (click)="Remove(restaurant)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
             <button class="btn btn-default btn-sm" (click)="Edit(restaurant)">Edit</button>
         </span>
               </p>

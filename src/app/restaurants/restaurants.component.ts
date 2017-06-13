@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 })
 export class RestaurantsComponent implements OnInit {
 
-  cuisines;
+  //cuisines;
   restaurants: Observable<any>;
 
 
@@ -19,19 +19,25 @@ export class RestaurantsComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.cuisines = this.db.list('/cuisines');
-    this.restaurants = this.db.list('/restaurants')
-                            .map(restaurants => {
-                              console.log("BEFORE MAP", restaurants);
-                              restaurants.map(restaurant => {
-                                restaurant.cusineType = this.db.object('cuisines/' + restaurant.cusine);
-                                return restaurant;
-                              });
-                              console.log("AFTER MAP", restaurants);
-                              return restaurants;
-                            });
+    //this.cuisines = this.db.list('/cuisines');
+
+    this.restaurants = this.db.list('/restaurants/'
+    // , {
+    //   query: {
+    //     orderByChild: 'cusine',
+    //     equalTo: 4
+    //   }
+    // }
+    )
+      .map(restaurants => {
+        restaurants.map(restaurant => {
+          restaurant.cusineType = this.db.object('cuisines/' + restaurant.cusine);
+          return restaurant;
+        });
+        return restaurants;
+      });
     //this.restaurant = this.db.object('/restaurant');
-   
+
   }
   Edit(restaurant) {
     console.log('Edit')

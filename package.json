@@ -4,7 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {    
-    "start": "node index.js"    
+    "start": "node server.js"    
   },  
   "dependencies": {
     "@angular/common": "^4.0.0",

@@ -4,6 +4,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {    
+    "postinstall": "ng build --aot -prod",
     "start": "node server.js"    
   },  
   "dependencies": {

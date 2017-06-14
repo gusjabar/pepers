@@ -9,8 +9,9 @@
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
-    "postinstall": "ng build --aot -prod"
+     "postinstall": "ng build --target=production -e ${NODE_ENV:-production} --aot",
   },  
+  "private": true,
   "dependencies": {
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
@@ -28,7 +29,7 @@
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },
-   "private": true,
+
   "devDependencies": {
     "@angular/cli": "1.0.0",
     "@angular/compiler-cli": "^4.0.0",

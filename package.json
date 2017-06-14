@@ -4,11 +4,13 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {        
+    "ng": "ng",
     "start": "node server.js",
-    "lint": "tslint \"src/**/*.ts\"",
+    "build": "ng build",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ng build"
   },  
   "private": true,
   "dependencies": {

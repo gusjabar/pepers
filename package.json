@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "license": "MIT",
   "main": "index.js",
-  "scripts": {        
+  "scripts": {      
+    "heroku-prebuild": "rm -rf node_modules && npm cache clean",
     "start": "http-server",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "preinstall": "npm install -g http-server",
-    "postinstall": "ng build --prod",
-    "deploy": "git push origin master && git push heroku master"
+    "postinstall": "ng build --prod"    
   },  
   "private": true,
   "dependencies": {

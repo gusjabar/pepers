@@ -1,20 +1,17 @@
 {
   "name": "peper",
   "version": "0.0.0",
-  "license": "MIT",
-  "main": "index.js",
+  "license": "MIT",  
   "scripts": {
-    "start": "node server.js",
+    "start": "ng server",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "postinstall": "ng build --aot -prod",
-    "deploy": "git push origin master && git push heroku master"
+    "e2e": "protractor"
+   
   },
   "private": true,
-  "dependencies": {   
-    
+  "dependencies": {       
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
@@ -57,9 +54,6 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.3.4"
-  },
-  "engines": {
-    "node": "7.8.0",
-    "npm": "5.0.3"
   }
+
 }
